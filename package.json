@@ -1,0 +1,23 @@
+{
+	"dependencies": {
+		"ascii-table": "^0.0.9",
+		"dotenv": "^16.0.3",
+		"glob": "^8.0.3",
+		"guilded.js": "^0.15.0",
+		"mongoose": "^6.7.5"
+	},
+	"name": "@node/gulded",
+	"version": "1.0.0",
+	"main": "SRC/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [
+		"Bot",
+		"Guilded",
+		"JavaScript"
+	],
+	"author": "THE-ASSASSIN0128",
+	"license": "MIT",
+	"description": "A bot for Guilded.gg"
+}
