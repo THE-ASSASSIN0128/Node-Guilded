@@ -1,9 +1,12 @@
+const { aliases } = require("../../Commands/Moderation/clear");
+
 async function loadCommands(client) {
 	const { loadFiles } = require("../Loaders/loadFiles");
 	const ascii = require("ascii-table");
-	const table = new ascii("Commands").setHeading("files", "status");
+	const table = new ascii("C0MMANDS").setHeading("files", "status");
 
 	await client.commands.clear();
+	await client.aliases.clear();
 
 	let commands = [];
 
@@ -13,7 +16,13 @@ async function loadCommands(client) {
 		const command = require(file);
 		client.commands.set(command.name, command);
 
-		table.addRow(command.name, "Success");
+		if (command.aliases) {
+			command.aliases.forEach((alias) => {
+				client.aliases.set(alias, command.name);
+			});
+		}
+
+		table.addRow(file.split("/")[8], "success");
 	});
 
 	return console.log(table.toString());

@@ -4,6 +4,7 @@
 		"dotenv": "^16.0.3",
 		"glob": "^8.0.3",
 		"guilded.js": "^0.15.0",
+		"moment": "^2.29.4",
 		"mongoose": "^6.7.5"
 	},
 	"name": "@node/gulded",

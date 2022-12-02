@@ -3,7 +3,7 @@ async function loadEvents(client) {
 		loadFiles,
 	} = require(`${process.cwd()}/SRC/Functions/Loaders/loadFiles.js`);
 	const ascii = require("ascii-table");
-	const table = new ascii("TABLE").setHeading("Events", "Status");
+	const table = new ascii("EVENTS").setHeading("files", "status");
 
 	await client.events.clear();
 
@@ -29,7 +29,7 @@ async function loadEvents(client) {
 			}
 		}
 
-		table.addRow(event.name, "Success");
+		table.addRow(file.split("/")[8], "success");
 	});
 
 	return console.log(table.toString());

@@ -1,10 +1,16 @@
 require("dotenv").config();
-const { Embed, Message, ClientUser } = require("guilded.js");
+const { Embed, Message, Client } = require("guilded.js");
 const { image, colour, bot } = require("../../config.json");
 const { version } = require("../../../package.json");
 
 module.exports = {
 	name: "messageCreated",
+	/**
+	 *
+	 * @param {Message} message
+	 * @param {Client} client
+	 * @returns
+	 */
 	execute: async (message, client) => {
 		if (message.isPrivate === "true") return;
 		const prefix = process.env.PREFIX;
@@ -26,16 +32,16 @@ module.exports = {
 				new Embed()
 					.setAuthor("ERROR", image.error)
 					.setDescription(
-						`The command you used **[${cmd}]** is not a valid command.\n\nIf you need any help with the commands use **G!help** for more info.`
+						`The command you used **[${cmd}]** is not a valid command.`
 					)
 					.setColor(colour.error)
 					.setThumbnail(image.error)
-					.setFooter(`Node Bot | V•${version}`)
+					.setFooter(`${client.user.name} | V•${version}`)
 					.setTimestamp()
 			);
 
 		try {
-			command.execute(message, args);
+			command.execute(message, client, args);
 		} catch (error) {
 			await message.send(
 				new Embed()
@@ -45,7 +51,7 @@ module.exports = {
 						`There was an error while executing the command.\n**ERROR :**\n${error}`
 					)
 					.setThumbnail(image.error)
-					.setFooter(`Node Bot | V•${version}`)
+					.setFooter(`${client.user.name} | V•${version}`)
 					.setTimestamp()
 			);
 		}
