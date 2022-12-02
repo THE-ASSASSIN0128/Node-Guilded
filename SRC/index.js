@@ -13,7 +13,7 @@ client.commands = new Collection();
 client.events = new Collection();
 client.aliases = new Collection();
 
-//Executuing Functions
+//Executuing Functions to load Commands & Events
 loadCommands(client);
 loadEvents(client);
 
