@@ -7,7 +7,7 @@
 		"moment": "^2.29.4",
 		"mongoose": "^6.7.5"
 	},
-	"name": "@node/gulded",
+	"name": "@node/guilded",
 	"version": "1.0.0",
 	"main": "SRC/index.js",
 	"scripts": {
